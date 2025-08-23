@@ -1,0 +1,616 @@
+/* Мобильные исправления для сайта Clodd - НЕ ТРОГАТЬ ДЕСКТОПНУЮ ВЕРСИЮ */
+
+/* ========================================
+   КРИТИЧЕСКИ ВАЖНО: ВСЕ ИЗМЕНЕНИЯ ТОЛЬКО ДЛЯ МОБИЛЬНОЙ ВЕРСИИ
+   ДЕСКТОПНАЯ ВЕРСИЯ ОСТАЕТСЯ БЕЗ ИЗМЕНЕНИЙ
+======================================== */
+
+/* 1. КАСАНИЯ ЭЛЕМЕНТОВ - убрать эффекты подсветки при касании */
+@media (max-width: 768px) {
+  /* Убираем подсветку при касании для всех интерактивных элементов */
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+  }
+  
+  a, button, input, textarea, select {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+  }
+}
+
+/* 2. МОДАЛЬНЫЕ ОКНА КЕЙСОВ - исправить прозрачность и блокировать скролл */
+@media (max-width: 768px) {
+  /* Улучшенная прозрачность модального фона */
+  .modal-overlay,
+  .fixed.inset-0.bg-black,
+  .bg-black.bg-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(2px) !important;
+  }
+  
+  /* Блокировка скролла основного сайта при открытом модальном окне */
+  body.modal-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+  
+  /* Модальное окно с корректной прокруткой */
+  .modal-content {
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* 3. РАССТОЯНИЕ БЛОКОВ - уменьшить отступ между блоками "Как мы работаем" и "Решения" */
+@media (max-width: 768px) {
+  /* Уменьшаем отступы между основными секциями */
+  .section-spacing,
+  .py-20,
+  .py-16 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Конкретные блоки */
+  [data-section="process"] + [data-section="solutions"],
+  .process-section + .solutions-section {
+    margin-top: -2rem !important;
+  }
+}
+
+/* 4. АБОНЕНТСКОЕ СОПРОВОЖДЕНИЕ - добавить отступ для текста и уменьшить иконку в 2 раза */
+@media (max-width: 768px) {
+  /* Блок абонентского сопровождения */
+  .subscription-support,
+  [data-feature="subscription"] {
+    padding: 1.5rem !important;
+  }
+  
+  /* Уменьшаем иконку в 2 раза */
+  .subscription-support .icon,
+  [data-feature="subscription"] .w-16,
+  [data-feature="subscription"] .h-16,
+  .subscription-support .w-12,
+  .subscription-support .h-12 {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  
+  /* Отступы для текста */
+  .subscription-support .text-content,
+  [data-feature="subscription"] .text-left {
+    padding-left: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* 5. ТАБЛИЦА И КАЛЬКУЛЯТОР - уменьшить пробел между таблицей тарифов и калькулятором */
+@media (max-width: 768px) {
+  /* Уменьшаем отступ между таблицей и калькулятором */
+  .pricing-table + .calculator,
+  .pricing-section + .calculator-section,
+  [data-section="pricing"] + [data-section="calculator"] {
+    margin-top: -1rem !important;
+  }
+  
+  /* Общие отступы секций с ценами */
+  .pricing-gap {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* 6. КНОПКА "ПОЛУЧИТЬ ДЕТАЛЬНЫЙ РАСЧЕТ" - увеличить padding внутри кнопки */
+@media (max-width: 768px) {
+  /* Увеличиваем внутренние отступы кнопки расчета */
+  .calculate-button,
+  button[data-action="calculate"],
+  .btn-calculate {
+    padding: 1rem 2rem !important;
+    min-height: 3rem !important;
+  }
+  
+  /* Все основные кнопки */
+  .bg-gradient-to-r button,
+  .bg-purple-500 button {
+    padding: 0.875rem 1.5rem !important;
+  }
+}
+
+/* 7. ЛОГОТИП "ПОТОК" - уменьшить размер логотипа чтобы он не выпирал за рамки */
+@media (max-width: 768px) {
+  /* Уменьшаем логотип Поток */
+  .potok-logo,
+  .logo-potok,
+  img[alt*="Поток"],
+  img[src*="potok"] {
+    max-width: 80% !important;
+    height: auto !important;
+    max-height: 2.5rem !important;
+  }
+  
+  /* Логотипы в секции партнеров */
+  .partners-section img,
+  .clients-section img {
+    max-width: 120px !important;
+    max-height: 60px !important;
+    object-fit: contain !important;
+  }
+}
+
+/* 8. ИКОНКА АВТОМАТИЗАЦИИ - центрировать иконку в блоке "Готовы автоматизировать бизнес" */
+@media (max-width: 768px) {
+  /* Центрирование иконки автоматизации */
+  .automation-ready .icon,
+  [data-section="automation"] .icon,
+  .automation-block .w-16,
+  .automation-block .h-16 {
+    margin: 0 auto !important;
+    display: block !important;
+  }
+  
+  /* Блок "Готовы автоматизировать" */
+  .automation-ready,
+  [data-section="automation"] {
+    text-align: center !important;
+  }
+  
+  .automation-ready .flex {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+/* 9. ФУТЕР - добавить отступ от левого края */
+@media (max-width: 768px) {
+  /* Отступы футера */
+  footer,
+  .footer-section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Контент футера */
+  footer .container,
+  footer .max-w-7xl {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* ========================================
+   ДОПОЛНИТЕЛЬНЫЕ ОПТИМИЗАЦИИ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ
+======================================== */
+
+/* Оптимизация ширины контента для мобильных устройств */
+@media (max-width: 768px) {
+  /* Расширяем основные контейнеры */
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .max-w-2xl {
+    max-width: calc(100vw - 1rem) !important;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Убираем лишние отступы у контейнеров */
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Оптимизируем отступы секций */
+  section {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* Убираем горизонтальную прокрутку */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  #root {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Предотвращаем выход элементов за пределы экрана */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Компактные отступы для мобильной версии */
+@media (max-width: 768px) {
+  .py-20 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .py-16 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  .py-12 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  /* Оптимизация gap для сеток */
+  .gap-8 {
+    gap: 1rem !important;
+  }
+  
+  .gap-6 {
+    gap: 0.75rem !important;
+  }
+  
+  /* Убираем лишние margin */
+  .mb-16 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mb-12 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .mt-16 {
+    margin-top: 1.5rem !important;
+  }
+}
+
+/* Дополнительная оптимизация для очень маленьких экранов */
+@media (max-width: 480px) {
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl,
+  .max-w-4xl,
+  .max-w-3xl,
+  .max-w-2xl {
+    max-width: calc(100vw - 0.5rem) !important;
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+}
+
+/* ВАЖНО: Сохраняем все существующие анимации айфона и диалогов */
+@media (max-width: 768px) {
+  /* НЕ ТРОГАЕМ анимации айфона и диалогов */
+  .iphone-container,
+  .dialog-box,
+  .typing-text,
+  .problem-card {
+    /* Сохраняем все существующие анимации */
+  }
+}
+
+/* Убираем нежелательные анимации, НО СОХРАНЯЕМ КЛЮЧЕВЫЕ */
+@media (max-width: 768px) {
+  /* Отключаем только hover анимации карточек */
+  .bg-white:hover,
+  .rounded-xl:hover,
+  .shadow-lg:hover {
+    transform: none !important;
+  }
+  
+  /* Отключаем анимации кнопок при hover */
+  button:hover {
+    transform: none !important;
+  }
+}
+
+/* ========================================
+   НОВЫЕ СТИЛИ КНОПОК
+   Прямоугольные с закругленными краями + синий градиент iPhone
+======================================== */
+
+/* Оставляем кнопки навигации без изменений */
+/* НЕ применяем стили к кнопкам меню */
+
+/* Убрал все универсальные стили кнопок, чтобы не портить оригинальный дизайн */
+
+/* Сохраняем rounded-full для основных кнопок */
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* Применяем синий градиент iPhone ТОЛЬКО к кнопке "Зачем нам?" */
+button.bg-gradient-to-r.from-cyan-500.to-purple-600:not([class*="mvp"]):not([class*="MVP"]){
+  background: linear-gradient(135deg, #007AFF, #5856D6) !important;
+  color: white !important;
+}
+
+/* Hover эффект для кнопки "Зачем нам?" */
+button.bg-gradient-to-r.from-cyan-500.to-purple-600:not([class*="mvp"]):not([class*="MVP"]):hover {
+  background: linear-gradient(135deg, #0099FF, #6366F1, #007AFF) !important;
+  background-size: 200% 200% !important;
+  animation: gradient-hover 0.8s ease infinite !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* НЕ трогаем кнопку "Попробовать MVP" - она должна остаться белой */
+/* НЕ трогаем MVP блок - он должен остаться с оригинальным градиентом */
+
+@keyframes gradient-hover {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Убрал все глобальные правила для кнопок, чтобы не портить дизайн */
+
+/* ========================================
+   ОТКЛЮЧЕНИЕ АНИМАЦИЙ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ
+   СОХРАНЯЕМ: анимацию iPhone, слайдер в блоке проблемы и typing анимацию в hero
+======================================== */
+
+@media (max-width: 768px) {
+  /* Отключаем анимацию градиента только для конкретных кнопок */
+  .btn-gradient {
+    animation: none !important;
+    background: linear-gradient(135deg, #007AFF, #5856D6) !important;
+    background-size: 100% 100% !important;
+  }
+  
+  /* Отключаем анимацию плавания для всех элементов, КРОМЕ iPhone */
+  .animate-float:not(.iphone-element):not(.phone-container):not([data-iphone]) {
+    animation: none !important;
+  }
+  
+  /* Сохраняем typing анимацию в hero блоке */
+  .typing-text,
+  .hero-typing,
+  [data-typing],
+  .typewriter,
+  .animate-typing,
+  /* Поддержка различных селекторов typing анимации */
+  [style*="animation"][style*="typing"],
+  [style*="animation"][style*="blink"],
+  .hero-section .typing,
+  .hero-section [data-animation="typing"] {
+    animation: initial !important;
+  }
+  
+  /* Отключаем все transition анимации */
+  * {
+    transition: none !important;
+  }
+  
+  /* Возвращаем transition только для важных элементов */
+  .iphone-container,
+  .iphone-container *,
+  .phone-mockup,
+  .phone-mockup *,
+  [data-iphone],
+  [data-iphone] *,
+  .typing-text,
+  .typing-text *,
+  .hero-typing,
+  .hero-typing *,
+  [data-typing],
+  [data-typing] *,
+  .typewriter,
+  .typewriter *,
+  .dialog-box,
+  .problem-card {
+    transition: all 0.3s ease !important;
+  }
+  
+  /* Отключаем hover эффекты */
+  *:hover {
+    transform: none !important;
+  }
+  
+  /* Сохраняем hover только для iPhone элементов */
+  .iphone-container:hover,
+  .iphone-container *:hover,
+  .phone-mockup:hover,
+  .phone-mockup *:hover,
+  [data-iphone]:hover,
+  [data-iphone] *:hover {
+    transform: initial !important;
+  }
+  
+  /* Отключаем анимацию прокрутки */
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  /* Отключаем backdrop-filter анимации */
+  .glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255,255,255,0.9) !important;
+  }
+}
+
+/* ========================================
+   ИСПРАВЛЕНИЯ АНИМАЦИИ IPHONE ЧАТА
+   С ТОЧНЫМИ CSS КЛАССАМИ
+======================================== */
+
+/* Исправление плашки с именем "Виктор" */
+/* Добавляем отступ сверху и уменьшаем высоту */
+.chat-header {
+  padding-top: 12px !important;
+  margin-top: 8px !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+.user-profile-section {
+  padding-top: 8px !important;
+  margin-top: 4px !important;
+}
+
+.user-name {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 2px 0 !important;
+}
+
+.user-status.online {
+  font-size: 12px !important;
+  margin-top: 2px !important;
+}
+
+/* Исправление переполнения текста в сообщениях */
+.message-container {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.message-bubble {
+  max-width: 85% !important;
+  padding: 8px 12px !important;
+  word-wrap: break-word !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.message-container.outgoing .message-bubble {
+  margin-left: auto !important;
+  margin-right: 8px !important;
+}
+
+.message-container.incoming .message-bubble {
+  margin-left: 8px !important;
+  margin-right: auto !important;
+}
+
+.message-text {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+.message-content {
+  padding: 4px !important;
+  overflow: hidden !important;
+}
+
+/* Общие контейнеры iPhone */
+.phone-mockup,
+.chat-container {
+  overflow: hidden !important;
+}
+
+.chat-messages {
+  padding: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Дополнительные селекторы на случай других классов */
+.contact-name,
+[class*="chat-header"],
+[class*="contact"],
+[class*="header"] {
+  padding-top: 12px !important;
+  margin-top: 8px !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+[class*="message"],
+[class*="chat"] .text {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ========================================
+   КОНЕЦ МОБИЛЬНЫХ ИСПРАВЛЕНИЙ
+   ДЕСКТОПНАЯ ВЕРСИЯ ОСТАЕТСЯ БЕЗ ИЗМЕНЕНИЙ
+======================================== */
+
+/* ========================================
+   ОТКЛЮЧЕНИЕ ИНТЕРАКТИВНОСТИ ТАРИФНЫХ КАРТОЧЕК НА МОБИЛЬНЫХ
+======================================== */
+
+@media (max-width: 768px) {
+  /* Отключаем все hover эффекты для тарифных карточек */
+  .bg-slate-50.rounded-3xl.shadow-lg,
+  .bg-white.rounded-3xl.shadow-xl,
+  [class*="bg-slate-50"][class*="shadow-lg"],
+  [class*="bg-white"][class*="shadow-xl"] {
+    /* Убираем тени и hover эффекты */
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+  }
+  
+  /* Убираем hover эффекты специально для тарифных карточек */
+  .bg-slate-50.rounded-3xl:hover,
+  .bg-white.rounded-3xl:hover,
+  [class*="bg-slate-50"]:hover,
+  [class*="shadow-lg"]:hover,
+  [class*="hover:shadow-2xl"]:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  
+  /* Делаем тарифные карточки статичными */
+  .pricing-card,
+  [data-pricing],
+  .tariff-card,
+  .plan-card {
+    pointer-events: none !important;
+    touch-action: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+  
+  /* Убираем border hover эффекты для тарифных карточек */
+  .border-purple-300:hover,
+  .hover\:border-purple-400:hover {
+    border-color: inherit !important;
+  }
+  
+  /* Отключаем все анимации для тарифных карточек */
+  [class*="bg-slate-50"] *,
+  [class*="shadow-lg"] *,
+  .pricing-card *,
+  .tariff-card * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
